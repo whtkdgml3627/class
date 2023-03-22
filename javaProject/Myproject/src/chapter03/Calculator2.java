@@ -1,26 +1,33 @@
 package chapter03;
-
+/* console에서 입력 할 수 있는 자바 라이브러리 */
 import java.util.Scanner;
 
 public class Calculator2 {
 
 	public static void main(String[] args) {
 		
-//		사용자 키보드값 입력
+//		console에서 입력할 키보드값 입력값 선언
 		Scanner sc = new Scanner(System.in);
 		
+		System.out.println("두개의 숫자를 입력하세요.");
+		int num1 = sc.nextInt();
+		int num2 = sc.nextInt();
 //		더하기 출력
-		System.out.println("더하기 : " + sum(10,5));
+		System.out.println("더하기 : " + sum(num1,num2));
 //		빼기 출력
-		System.out.println("빼기 : " + minus(10,5));
+		System.out.println("빼기 : " + minus(num1,num2));
 //		곱하기 출력
-		System.out.println("곱하기 : " + multiple(10,5));
+		System.out.println("곱하기 : " + multiple(num1,num2));
 //		나누기 출력
-		System.out.println("나누기 : " + divide(10,5));
+		System.out.println("나누기 : " + divide(num1,num2));
 //		원의 둘레 출력
-		System.out.println("원의 둘레 : " + circle(4.534));
+		System.out.println("원의 둘레를 구할 반지름을 입력하세요.");
+		double circleRadius = sc.nextDouble();
+		System.out.println("원의 둘레 : " + circle(circleRadius));
 //		원의 넓이 출력
-		System.out.println("원의 넓이 : " + circle2(4.534));
+		System.out.println("원의 넓이를 구할 반지름을 입력하세요.");
+		double circle2Radius = sc.nextDouble();
+		System.out.println("원의 넓이 : " + circle2(circle2Radius));
 		
 	}
 	
