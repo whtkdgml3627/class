@@ -19,7 +19,7 @@ public class Operator15 {
 		
 		result = num2 % 2 == 0 ? "짝수" : "홀수";
 		System.out.println("num2 : " + result);
-		
+		System.out.println("셋팅 테스트");
 	}
 
 }
