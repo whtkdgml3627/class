@@ -234,10 +234,19 @@ public class PracticeCode {
 //		  -------
 //		    9 9
 		System.out.println("문제14 : ");
+		int A = 0;
+		int B = 0;
 		for(int i = 0; i < 10; i++) {
 			for(int j = 0; j < 10; j++) {
-				if(i == 9 && j == 9) {
-					System.out.println(i + "" + j);
+				if(i + j == 9) {
+					System.out.print("A : " + i + " ");
+					System.out.print("B : " + j);
+					System.out.println();
+					System.out.print("B : " + j + " ");
+					System.out.print("A : " + i);
+					System.out.println();
+					System.out.println("------------");
+					System.out.println("     " + (i+j) + "" + (i+j));
 				}
 			}
 		}
