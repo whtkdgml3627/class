@@ -317,19 +317,6 @@ public class PracticeCode {
 		}while(numDoWhile < 100);
 		System.out.println(sumDoWhile);
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 	}
 
 }
