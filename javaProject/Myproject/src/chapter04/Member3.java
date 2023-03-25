@@ -7,8 +7,9 @@ public class Member3 {
 
 	public static void main(String[] args) {
 //		1.독감예방 접종 가능여부 main 메소드에 선언
-		fluVac();
+//		fluVac();
 		
+		chkMedical();
 	}
 	
 //	1. 독감예방 접종이 가능한지 여부를 확인하는 메소드를 정의합니다.	
@@ -40,4 +41,26 @@ public class Member3 {
 	}
 	
 //	2. 건강검진 대상 여부를 판별하고 어떤 검진이 가능한지 확인하는 메소드를 정의합니다.
+	
+	static void chkMedical() {
+//		console에서 입력할 키보드값 입력값 선언
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("태어난 해(년도)를 입력해 주세요.");
+//		태어난 해 입력 받는 영역
+		int year = sc.nextInt();
+		int age = 2023 - year + 1;
+		
+		if(age > 19 && (2023+year)%2 == 0) {
+			System.out.println("무료 검진 대상입니다.");
+			
+			if(age >= 40) {
+				System.out.println("무료 암 검진 대상입니다.");
+			}
+		}else {
+			System.out.println("올해는 무료 검진 대상이 아닙니다.");
+		}
+
+		sc.close();
+	}
 }
