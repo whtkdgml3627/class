@@ -7,10 +7,16 @@ public class SmartPhone { // 인스턴스화 -> 객체
 	float size = 5.7f;		// 속성 : 사이즈 -> 변수로 선언
 	int volume = 0;			// 속성 : 볼륨 -> 변수로 선언
 	
+//	생성자
+	SmartPhone(){
+		
+	}
+	
 //	메소드 정의 : 인스턴스 메소드
 //	전화 걸기 기능
-	void call() {
-		System.out.println("전화를 겁니다.");
+	void call(String number) {
+//		int number = 119;
+		System.out.println(number + "전화를 겁니다.");
 	}
 	
 //	볼륨을 키우는 기능
@@ -52,7 +58,8 @@ public class SmartPhone { // 인스턴스화 -> 객체
 		System.out.println();
 		
 //		인스턴스 메소드의 호출 -> 참조변수.메소드이름(); ()안에 매개변수가 있다면 넣어주면 됨.
-		sp.call();
+		sp.call("119");
+		
 
 //		볼륨의 값을 변경하는 방법
 //		변수에 직접 대입 (X) 사용하지 않음
