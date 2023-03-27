@@ -24,5 +24,13 @@ public class SmartPhoneMain {
 		System.out.println(sp2.color);
 		System.out.println(sp2.size);
 	}
+	
+	static int add(int n1, int n2) {
+		return n1 + n2;
+	}
+	
+	static int add(int n1) {
+		return n1;
+	}
 
 }
