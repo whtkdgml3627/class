@@ -33,7 +33,57 @@ public class Member {
 		this(name, phoneNum, major, grade, email, null, null); // 다른 생성자 호출
 	}
 	
-//	② 위에서 정의한 정보를 출력하는 메소드 정의
+//	Getter / Setter
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getPhoneNum() {
+		return phoneNum;
+	}
+	public void setPhoneNum(String phoneNum) {
+		this.phoneNum = phoneNum;
+	}
+
+	public String getMajor() {
+		return major;
+	}
+	public void setMajor(String major) {
+		this.major = major;
+	}
+
+	public String getGrade() {
+		return grade;
+	}
+	public void setGrade(String grade) {
+		this.grade = grade;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getBirth() {
+		return birth;
+	}
+	public void setBirth(String birth) {
+		this.birth = birth;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	//	② 위에서 정의한 정보를 출력하는 메소드 정의
 	public void printPerson() {
 		System.out.println("이름 : " + name);
 		System.out.println("전화번호 : " + phoneNum);
