@@ -64,7 +64,7 @@ public class Contact {
 	public void setGroup(String group) {
 		this.group = group;
 	}
-	
+
 	public void print() {
 		System.out.println("이름 : " + name);
 		System.out.println("전화번호 : " + phone);
@@ -73,6 +73,15 @@ public class Contact {
 		System.out.println("생일 : " + birth);
 		System.out.println("그룹 : " + group);
 	}
+	
+//	public String getContact() {
+//		return "이름 : " + name + "\n" +
+//				"번호 : " + phone + "\n" +
+//				"이메일 : " + email + "\n" +
+//				"주소 : " + addr + "\n" +
+//				"생일 : " + birth + "\n" +
+//				"그룹 : " + group + "\n";
+//	}
 }
 
 class ContactMain {
@@ -98,6 +107,7 @@ class ContactMain {
 		System.out.println("전화번호를 수정해주세요.");
 		String newPhone = sc.nextLine();
 		cnt.setPhone(newPhone);
+//		System.out.println(cnt.getContact());
 		cnt.print();
 		
 		sc.close();
