@@ -78,22 +78,20 @@ public class Contact {
 class ContactMain {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		Contact cnt = new Contact("조상희", "010-1111-1111", "test@gmail.com", "서울시", "10월 28일", "그룹");
-		
-		cnt.print();
+		Contact cnt = new Contact(null, null, null, null, null, null);
 
 		System.out.println("이름을 입력하세요.");
 		cnt.setName(sc.nextLine());
 		System.out.println("전화번호를 입력하세요.");
 		cnt.setPhone(sc.nextLine());
-//		System.out.println("이메일을 입력하세요.");
-//		cnt.setEmail(sc.nextLine());
-//		System.out.println("주소를 입력하세요.");
-//		cnt.setAddr(sc.nextLine());
-//		System.out.println("생일을 입력하세요.");
-//		cnt.setBirth(sc.nextLine());
-//		System.out.println("그룹을 입력하세요.");
-//		cnt.setGroup(sc.nextLine());
+		System.out.println("이메일을 입력하세요.");
+		cnt.setEmail(sc.nextLine());
+		System.out.println("주소를 입력하세요.");
+		cnt.setAddr(sc.nextLine());
+		System.out.println("생일을 입력하세요.");
+		cnt.setBirth(sc.nextLine());
+		System.out.println("그룹을 입력하세요.");
+		cnt.setGroup(sc.nextLine());
 		
 		cnt.print();
 		
