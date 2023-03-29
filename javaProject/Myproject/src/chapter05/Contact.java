@@ -5,12 +5,12 @@ import java.util.Scanner;
 public class Contact {
 
 //	변수 선언
-	private String name;
-	private String phone;
-	private String email;
-	private String addr;
-	private String birth;
-	private String group;
+	private String name;	//이름
+	private String phone;	//전화번호
+	private String email;	//이메일
+	private String addr;	//주소
+	private String birth;	//생일
+	private String group;	//그룹
 	
 //	생성자
 	public Contact(String name, String phone, String email, String addr, String birth, String group) {
