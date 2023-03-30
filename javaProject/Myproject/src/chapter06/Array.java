@@ -20,7 +20,13 @@ public class Array {
 		int sum = 0;
 		double avg = 0.0;
 		
-		System.out.println(sum);
+		for(int[] temp : arr) {
+			for(int i : temp) {
+				System.out.print(i + "\t");
+				sum += i;
+			}
+			System.out.println();
+		}
 	}
 
 }
