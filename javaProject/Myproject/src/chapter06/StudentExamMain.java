@@ -3,7 +3,7 @@ package chapter06;
 public class StudentExamMain {
 
 	public static void main(String[] args) {
-
+		
 		// Student 타입의 배열 생성 : 데이터 10개 저장
 		StudentExam[] students = new StudentExam[10];
 		students[0] = new StudentExam("son01", 100, 10, 90);
@@ -17,6 +17,8 @@ public class StudentExamMain {
 		students[8] = new StudentExam("son09", 20, 90, 70);
 		students[9] = new StudentExam("son10", 10, 100, 60);
 		
+		int[] total = new int[3];
+		
 		System.out.println("이름\t국어\t영어\t수학\t총점\t평균");
 		System.out.println("=================================================");
 		
@@ -24,6 +26,13 @@ public class StudentExamMain {
 			System.out.println(student.result());
 		}
 		
+		// 국어 점수의 총 합
+		for(int i=0; i<students.length; i++) {
+			total[0] += students[i].getKor();
+			total[1] += students[i].getEng();
+			total[2] += students[i].getMath();
+		}
+		System.out.println("\t" + total[0] + "\t" + total[1] + "\t" + total[2]);
 	}
 
 }

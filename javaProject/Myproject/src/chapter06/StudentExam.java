@@ -67,7 +67,7 @@ public class StudentExam {
 	public String result() {
 		return sName+"\t"+kor+"\t"+eng+"\t"+math+"\t"+sum()+"\t"+avg();
 	}
-
+	
 	@Override
 	public String toString() {
 //		return "StudentExam [sName=" + sName + ", kor=" + kor + ", eng=" + eng + ", math=" + math + "]";
