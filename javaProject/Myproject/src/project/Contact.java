@@ -1,7 +1,8 @@
-package contact;
+package project;
 
 public class Contact {
 
+	//배열 생성
 	private String name;			//이름
 	private String phoneNumber; 	//전화번호
 	private String email;			//이메일
@@ -20,13 +21,7 @@ public class Contact {
 		this.group = group;
 	}
 	
-	//이름, 전화번호만 담는 생성자
-	public Contact(String name, String phoneNumber) {
-		super();
-		this.name = name;
-		this.phoneNumber = phoneNumber;
-	}
-	
+	//getter / setter
 	public String getName() {
 		return name;
 	}
@@ -68,12 +63,6 @@ public class Contact {
 	public void setGroup(String group) {
 		this.group = group;
 	}
-
-	//이름, 전화번호만 출력하는 메소드
-	public void printSimpleData() {
-		System.out.println("이름 : " + name);
-		System.out.println("전화번호 : " + phoneNumber);
-	}
 	
 	// 전체 출력
 	public void printData() {
@@ -83,6 +72,5 @@ public class Contact {
 		System.out.println("주소 : " + address);
 		System.out.println("생일 : " + birthday);
 		System.out.println("그룹 : " + group);
-		
 	}
 }
