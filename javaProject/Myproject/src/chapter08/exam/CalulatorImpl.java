@@ -34,11 +34,10 @@ public class CalulatorImpl implements Calulator {
 		return n1 / n2;
 	}
 	
-	public void result(long n1, long n2) {
+	public void setResult(long n1, long n2) {
 		System.out.println("두 수의 더한 값은 : " + add(n1, n2));
 		System.out.println("두 수의 뺀 값은 : " + substract(n1, n2));
 		System.out.println("두 수의 곱한 값은 : " + multiply(n1, n2));
 		System.out.println("두 수의 나눈 값은 : " + divide((double)n1, (double)n2));
 	}
-
 }
