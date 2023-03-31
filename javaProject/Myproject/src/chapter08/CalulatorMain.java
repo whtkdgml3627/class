@@ -14,6 +14,9 @@ public class CalulatorMain {
 		System.out.println(calulator.multiply(8545L, 32L));
 		System.out.println(calulator.divide(2323233, 23));
 		
+		// CalualtorImpl의 메소드를 사용하기 위해선 하위 클래스로의 형변환이 필요하다.
+		System.out.println(((CalulatorImpl)calulator).nameTest("테스트"));
+		
 	}
 
 }

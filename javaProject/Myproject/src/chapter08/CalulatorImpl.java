@@ -22,5 +22,9 @@ public class CalulatorImpl implements Calulator {
 	public double divide(double n1, double n2) {
 		return n1 / n2;
 	}
+	
+	public String nameTest(String name) {
+		return name;
+	}
 
 }
