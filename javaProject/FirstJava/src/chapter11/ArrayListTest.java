@@ -1,6 +1,7 @@
 package chapter11;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class ArrayListTest {
@@ -12,6 +13,19 @@ public class ArrayListTest {
 		numbers.add(20);
 		numbers.add(30);
 		numbers.add(40);
+		numbers.add(50);
+		
+		// 반복자 : Iterator<E> -> Collection<E> 구현하는 객체들의 전체 참조 목적으로 사용
+		Iterator<Integer> itr = numbers.iterator();
+		
+		System.out.println("Iterator를 이용한 전체 참조");
+		while(itr.hasNext()) {
+			//System.out.println(itr.next());
+			int num = itr.next();
+			System.out.println(100 + num);
+		}
+		
+		System.out.println("========================");
 		
 		for(int n : numbers) {
 			System.out.println(n);
