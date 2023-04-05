@@ -11,7 +11,10 @@ public class FootballPlayerMain {
 		// List<E>인 ArrayList<E>를 인스턴스로 생성
 		// <E> 제너릭 안에는 사용하고자 하는 클래스 명을 넣어준다.
 		// new ArrayList 로 ArrayList를 생성한다.
-		List<FootballPlayer> list = new ArrayList<FootballPlayer>();
+		// list 타입의 참조변수를 먼저 null 값으로 생성해준다
+		List<FootballPlayer> list = null;
+		// list 타입의 인스턴스를 생성한다.
+		list = new ArrayList<FootballPlayer>();
 		
 		// ArrayList로 선언한 list에 값을 넣어준다.
 		// 값을 넣을때는 add를 사용한다.
