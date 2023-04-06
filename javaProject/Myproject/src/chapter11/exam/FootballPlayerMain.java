@@ -112,6 +112,12 @@ public class FootballPlayerMain {
 		for(Integer m : keySet) {
 			System.out.println(m);
 		}
+		
+		// map 나열
+		Set<Map.Entry<Integer, FootballPlayer>> mapEntry = map.entrySet();
+		for(Map.Entry<Integer, FootballPlayer> ent : mapEntry) {
+			System.out.println("key값 : " + ent.getKey() + " : " + "value값 : " + ent.getValue());
+		}
 	}
 
 }
