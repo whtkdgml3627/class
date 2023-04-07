@@ -2,7 +2,7 @@ package chapter11.collection;
 
 
 // 축구선수의 정보를 저장하는 클래스 : 축구선수 데이터 저장 -> 인스턴스 생성 -> 배열 -> List
-public class FootballPlayer {
+public class FootballPlayer implements Comparable<FootballPlayer>{
 	
 	private String name;
 	private int number;
@@ -50,6 +50,35 @@ public class FootballPlayer {
 	}
 	public void setAge(int age) {
 		this.age = age;
+	}
+
+	@Override
+	public int compareTo(FootballPlayer o) {
+		int compare = this.team.compareTo(o.getTeam());
+		if(compare == 0) {
+			compare = this.name.compareTo(o.getName());
+			if(compare == 0) {
+				compare = this.number - o.getNumber();
+			}
+		}
+		return compare;
+	}
+
+	@Override
+	public int hashCode() {
+		return this.age;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		boolean result = false;
+		
+		if(obj != null && obj instanceof FootballPlayer) {
+			FootballPlayer player = (FootballPlayer)obj;
+			result = this.team.equals(player.getTeam()) && this.name.equals(player.getName()) && this.age == player.getAge();
+		}
+		
+		return result;
 	}
 
 	@Override
