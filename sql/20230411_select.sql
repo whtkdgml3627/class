@@ -97,6 +97,70 @@ select * from emp where hiredate > '1981-12-03';
 select * from emp where deptno=10 and job='MANAGER';
 select * from emp where deptno=10 or job='MANAGER';
 select * from emp where not deptno=10;
+select * from emp where deptno<>10;
+select * from emp where deptno!=10;
 
+-- 2000에서 3000 사이의 급여를 받는 사원
+select * from emp where sal>=2000 AND sal<=3000;
+-- 범위 연산자 : 컬럼명 BETWEEN A AND B = A이상 B이하 / 작은 값 먼저 작성 and 큰 값
+select * from emp where sal between 2000 and 3000;
+
+-- 범위 연산자의 연산은 날짜도 가능하다. : 날짜는 홑 따옴표로 정의
+-- 1987년에 입사한 사원 > 1987-01-01
+select * from emp where hiredate BETWEEN '1980-01-01' and '1981-12-31';
+select * from emp where hiredate not BETWEEN '1980-01-01' and '1981-12-31';
+
+-- 10번, 20번, 30번 부서에 소속한 사원의 정보를 출력
+select * from emp where deptno=10 or deptno=20 or deptno=30;
+-- 컬럼명 in(값1, 값2, 값3, ...)연산자 : or의 연산을 간단하게 처리 // in()안에 select로 불러올 수 있다.
+-- 컬럼 = 컬럼=값1 or 컬럼=값2 or 컬럼=값3 or ...
+select * from emp where deptno in(10,20,30);
+select * from emp where deptno not in(10,20);
+
+-- 패턴 검색 : 문자열의 패턴을 검색할 때 > 컬럼 LIKE '패턴';
+-- 패턴 형식 : % (어떤 문자열이 와도 상관 없음) > '%java%' java 문자열을 포함하는 문자열 ----------- 검색에서 가장 많이 쓰인다.
+-- 패턴 형식 : 언더바 _한자리 __두자리 ___세자리 (_언더바의 개수만큼 자리수가 올 수 있음) > '__A' 앞 두자리는 어떤 문자가 와도 상관없고 A로 끝나는 세자리 문자열
+-- F로 시작하는 이름의 사원 리스트
+select * from emp where ename like 'F%';
+-- 이름에 A를 포함하는 사원 리스트 : '%A%';
+select * from emp where ename like '%A%';
+select * from emp where ename not like '%A%';
+-- 이름이 N으로 끝나는 사원의 리스트 : '%N'; '%.pdf'; pdf파일 출력할 때
+select * from emp where ename like '%N';
+
+-- 사원 이름중 두번째 문자가 A인 사원 리스트
+select * from emp where ename like '_A%';
+select * from emp where ename like '__R%';  -- 세번째문자가 R
+select * from emp where ename like '%R_';   -- 끝에서 두번째 문자가 R
+
+-- NULL 여부를 판단하는 IS NULL / IS NOT NULL
+-- 커미션이 등록되지 않은 사원 리스트 > comm이 null인 사원
+-- select * from emp where comm=null; -- 무조건 false이기 때문에 행을 아무것도 찾지 못한다.
+select * from emp where comm is null;
+-- 커미션이 등록되어 있는 사원 리스트 > comm이 null이 아닌 사원
+select * from emp where comm is not null;
+-- 커미션을 받지 못하는 사원 > comm이 null이거나 0인 사원
+select * from emp where comm is null or comm=0;
+select * from emp where not (comm is null or comm=0);
+select * from emp where comm is not null and comm>0;
+
+-- select의 출력 결과의 정렬 : 오름차순 asc (생략가능), 내림차순 desc
+-- select ... from ... where ... order by 컬럼이름 (asc[생략가능],desc)
+-- 급여순 (오름차순)으로 사원 리스트 출력
+select * from emp ORDER BY sal;
+select * from emp ORDER BY sal desc;
+
+-- 문자 정렬
+-- 이름 순
+select * from emp order by ename;
+
+-- 날짜
+-- 입사일 빠른 순서대로 정렬
+select * from emp order by hiredate;
+-- 최근 입사일 기준으로 정렬 : 내림차순
+select * from emp order by hiredate desc;
+
+-- 급여순으로 정렬
+select * from emp order by sal, ename desc;
 
 
