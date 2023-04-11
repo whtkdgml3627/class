@@ -55,3 +55,7 @@ INSERT INTO Orders VALUES (9, 2, 10, 7000, TO_DATE('2014-07-09','yyyy-mm-dd'));
 INSERT INTO Orders VALUES (10, 3, 8, 13000, TO_DATE('2014-07-10','yyyy-mm-dd'));
 
 COMMIT;
+
+select * from book;
+select * from customer;
+select * from orders;
