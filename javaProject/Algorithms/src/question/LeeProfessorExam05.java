@@ -18,20 +18,27 @@ public class LeeProfessorExam05 {
 
 	public static void main(String[] args) {
 		
-		// 2중 for문 사용
-		// 1부터 10까지 반복되는 첫번째 for문
-		for(int i=0; i<10; i++) {
-			// 1부터 10까지 반복되는 두번째 for문
-			for(int j=1; j<11; j++) {
-				// i는 0부터 들어오고 j는 1부터 증가하므로 i+j를 넣어줄 변수를 선언
-				int sum = i+j;
-				// sum이 10이 넘으면 10을 빼주는 if문
-				if(sum > 10) {
-					sum-=10;
+		for(int i = 0; i < 5; i++) {
+		    for(int j = 0; j < i+5; j++) {
+		        if(i + j > 3) {
+		        System.out.printf("* ");
+		        }
+		        else {
+		            System.out.printf("  ");
+		        }
+		    }
+		    System.out.println();
+		}
+		
+		for(int i=5; i>0; i--) {
+			for(int j=i; j<10; j++) {
+				if(i*2-1 > j) {
+					System.out.print("  ");
+				}else {
+					System.out.print("* ");
 				}
-				System.out.print(sum + " ");
 			}
-			System.out.println();
+			System.out.println("");
 		}
 		
 	}
