@@ -105,21 +105,20 @@ where b.publisher in (select b.publisher from orders o join book b on o.bookid=b
 -- (2) 두 개 이상의 서로 다른 출판사에서 도서를 구매한 고객의 이름
 -- group by custid, name
 -- 고객별 구매한 도서별 출판사의 수
-select c.custid, c.name
+select c.custid, c.name, count(distinct b.publisher)
 from orders o join book b
 on o.bookid=b.bookid
 join customer c
 on o.custid=c.custid
-group by c.custid, c.name;
-
-
-select c.name
-from customer c join orders o
-on c.custid=o.custid
-join book b
-on o.bookid=b.bookid
-group by c.name
+group by c.custid, c.name
 having count(distinct b.publisher)>1;
+
+-- 2개 이상의 출판사의 책을 구매한 회원 id
+select name
+from customer
+where custid in (select o.custid from orders o join book b on o.bookid=b.bookid group by o.custid having count(distinct b.publisher) > 1);
+
+select o.custid from orders o join book b on o.bookid=b.bookid group by o.custid having count(distinct b.publisher) > 1;
 
 
 
