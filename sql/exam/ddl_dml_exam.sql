@@ -77,3 +77,12 @@ DELETE PHONEINFO_UNIV WHERE FR_U_MAJOR='경영';
 DELETE PHONEINFO_COM WHERE FR_REF=2;
 
 ROLLBACK;
+commit;
+
+delete from emp;
+select * from emp;
+
+delete from emp01;
+select * from emp01;
+
+rollback;
