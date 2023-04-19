@@ -39,6 +39,22 @@ select view_name, text from user_views;
 -- view 삭제
 drop view emp_view30;
 
+select rownum, ename, hiredate from emp order by hiredate;
+
+select rownum, ename, hiredate
+from (select rownum, ename, hiredate from emp order by hiredate)
+where rownum <= 3
+order by hiredate;
+
+create or replace view emp_hiredate_view
+as
+select ename, hiredate from emp order by hiredate;
+
+select rownum, ename, hiredate
+from emp_hiredate_view
+where rownum <= 3;
+
+select to_char(hiredate, 'YYYY') from emp;
 
 
 
