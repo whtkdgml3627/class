@@ -2,7 +2,6 @@ package controller;
 
 import java.util.List;
 
-import dao.DeptDAO;
 import domain.Dept;
 import service.DeptListService;
 
@@ -17,8 +16,14 @@ public class DeptListController {
 	
 	DeptListService listService;
 	
-	public DeptListController() {
-		this.listService = new DeptListService(new DeptDAO());
+	private DeptListController() {
+		this.listService = DeptListService.getInstance();
+	}
+	
+	private static DeptListController controller = new DeptListController();
+	
+	public static DeptListController getInstatnce() {
+		return controller;
 	}
 
 	public void getDeptList() {

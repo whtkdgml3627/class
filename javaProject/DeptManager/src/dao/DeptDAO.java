@@ -11,8 +11,25 @@ import domain.Dept;
 
 public class DeptDAO {
 	
-	// Connection conn;
+	// DAO : sql을 실행하는 메소드만 가지는 클래스
+	// -> 여러개의 인스턴스가 생성될 필요가 없다.
+	// -> 싱글톤 처리를 통해서 하나의 인스턴스만 사용
+	
+	// 싱글톤 코드
+	// 1) 인스턴스 생성 금지 : private 생성자
+	private DeptDAO () {
 		
+	}
+	// 2) 클래스 내부에서 인스턴스 생성 : private static
+	private static DeptDAO dao = new DeptDAO();
+	// 3) 다른클래스(외부)에서 인스턴스를 얻을 수 있도록 메소드 : public static
+	public static DeptDAO getInstance() {
+		return dao;
+	}
+	
+	
+	
+	
 	// 1. dept list : List<Dept>
 	public List<Dept> selectByAll(Connection conn) {
 		
@@ -171,7 +188,32 @@ public class DeptDAO {
 		return result;
 	}
 	
-	// 5. 부서 정보 삭제
+	// 5. 부서 정보 삭제 : deptno -> 삭제할 부서 번호
+	public int deleteDeptByDeptno(Connection conn, int deptno) {
+		PreparedStatement pstmt = null;
+		int result = 0;
+		String sql = "delete from dept where deptno=?";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, deptno);
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if(pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		
+		return result;
+	}
 	
 	
 	public static void main(String[] args) throws SQLException {

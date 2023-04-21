@@ -9,8 +9,14 @@ public class DeptSearchController {
 	// Service
 	DeptSearchService searchService;
 	
-	public DeptSearchController() {
-		this.searchService = new DeptSearchService();
+	private DeptSearchController() {
+		this.searchService = DeptSearchService.getInstance();
+	}
+	
+	private static DeptSearchController controller = new DeptSearchController();
+	
+	public static DeptSearchController getInstance() {
+		return controller;
 	}
 
 	public void searchDept() {

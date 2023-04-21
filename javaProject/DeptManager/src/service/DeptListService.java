@@ -12,8 +12,14 @@ public class DeptListService {
 
 	DeptDAO dao;
 	
-	public DeptListService(DeptDAO dao) {
-		this.dao = dao;
+	private DeptListService() {
+		this.dao = DeptDAO.getInstance();
+	}
+	
+	private static DeptListService service = new DeptListService();
+	
+	public static DeptListService getInstance() {
+		return service;
 	}
 	
 	public List<Dept> getDeptList(){
@@ -67,7 +73,7 @@ public class DeptListService {
 	
 	public static void main(String[] args) {
 		
-		DeptListService listService = new DeptListService(new DeptDAO());
+		DeptListService listService = new DeptListService();
 		
 		List<Dept> list = listService.getDeptList();
 		

@@ -10,10 +10,18 @@ import util.ConnectionProvider;
 public class DeptUpdateSerivce {
 	
 	DeptDAO dao;
-
-	public DeptUpdateSerivce() {
-		this.dao = new DeptDAO();
+	
+	// 싱글톤 시작
+	private DeptUpdateSerivce() {
+		this.dao = DeptDAO.getInstance();
 	}
+	
+	private static DeptUpdateSerivce service = new DeptUpdateSerivce();
+	
+	public static DeptUpdateSerivce getInstance () {
+		return service;
+	}
+	// 싱글톤 끝
 	
 	public int updateDept(Dept newDept) {
 		

@@ -2,7 +2,6 @@ package controller;
 
 import java.util.List;
 
-import dao.DeptDAO;
 import domain.Dept;
 import main.DeptManagerMain;
 import service.DeptListService;
@@ -15,11 +14,17 @@ public class DeptUpdateController {
 	DeptSearchService searchService;
 	DeptUpdateSerivce updateSerivce;
 	
-	public DeptUpdateController() {
+	private DeptUpdateController() {
 		super();
-		this.listService = new DeptListService(new DeptDAO());
-		this.searchService = new DeptSearchService();
-		this.updateSerivce = new DeptUpdateSerivce();
+		this.listService = DeptListService.getInstance();
+		this.searchService = DeptSearchService.getInstance();
+		this.updateSerivce = DeptUpdateSerivce.getInstance();
+	}
+	
+	private static DeptUpdateController controller = new DeptUpdateController();
+	
+	public static DeptUpdateController getInstance() {
+		return controller;
 	}
 
 	public void updateDept() {

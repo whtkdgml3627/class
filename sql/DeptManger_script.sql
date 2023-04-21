@@ -2,7 +2,7 @@
 -- DEPT MANAGER
 
 -- 1. List
-select * from dept;
+select * from dept order by deptno;
 
 -- 2. Search
 select * from dept where deptno=10;
@@ -21,7 +21,10 @@ update dept set dname = 'AAAA', loc = 'BBB' where deptno=60;
 -- update dept set dname=?, loc=? where deptno=?
 rollback;
 
-
+-- 5. Delete
+delete from dept where deptno=60;
+-- delete from dept where deptno=?
+rollback;
 
 
 
