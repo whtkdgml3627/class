@@ -4,7 +4,7 @@ import domain.Dept;
 import main.DeptManagerMain;
 import service.DeptInsertService;
 
-public class DeptInsertController {
+public class DeptInsertController implements Controller {
 	
 	DeptInsertService insertService;
 	
@@ -18,7 +18,8 @@ public class DeptInsertController {
 		return controller;
 	}
 
-	public void insertDept() {
+	@Override
+	public void process() {
 		// 1. 사용자 입력 처리 -> Dept 타입의 객체를 반환
 		Dept dept = inputDept();
 		
