@@ -17,7 +17,7 @@ label {display:inline-block;width:70px;}
 		절대경로(서버 루트 경로기준) : /web/auth/login.jsp
 		상대경로(현재 파일기준) : login.jsp
 	-->
-	<form action="/web/login" method="post">
+	<form action="login.jsp" method="post">
 		<ul>
 			<li>
 				<label for="userid">아이디</label>
