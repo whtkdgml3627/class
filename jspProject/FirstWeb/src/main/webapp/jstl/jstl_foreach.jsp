@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>JSTL c:if</title>
+<title>JSTL c:foreach</title>
 </head>
 <body>
 	<!-- 1|손흥민|010-9999-7777|런던 -->

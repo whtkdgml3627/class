@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>JSTL c:if</title>
+<title>JSTL c:choosewhen</title>
 </head>
 <body>
 
