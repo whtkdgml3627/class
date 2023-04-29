@@ -42,7 +42,9 @@ public class TodoRegisterController extends HttpServlet {
 	    }
 	    
 		// 새로운 TodoVO 객체 추가
-	    todoList.add(todo);
+	    if(titleParm != null) {
+	    	todoList.add(todo);
+	    }
 		request.setAttribute("list", todoList);
 
 		// list 페이지에 forward
