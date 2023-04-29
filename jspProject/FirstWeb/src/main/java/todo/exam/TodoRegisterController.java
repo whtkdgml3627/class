@@ -2,7 +2,6 @@ package todo.exam;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -25,23 +24,28 @@ public class TodoRegisterController extends HttpServlet {
 		requestDispatcher.forward(request, response);
 	}
 
+	@SuppressWarnings("unchecked")
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		// title 파라미터
 		String titleParm = request.getParameter("title");
 		// date 파라미터
 		String dateParm = request.getParameter("date");
+		// TodoVO 객체생성
+		TodoVO todo = new TodoVO(titleParm, dateParm);
 		
-		// 기존 리스트 객체 가져오기
-	    List<TodoVO> list = (List<TodoVO>) request.getServletContext().getAttribute("todoList");
-	    if (list == null) {
-	        list = new ArrayList<TodoVO>();
-	        request.getServletContext().setAttribute("todoList", list);
+		// todoList 속성 가져오기
+		List<TodoVO> todoList = (List<TodoVO>) getServletContext().getAttribute("todoList");
+	    if (todoList == null) { // todoList 속성이 없는 경우
+	        todoList = new ArrayList<>();
+	        getServletContext().setAttribute("todoList", todoList);
 	    }
+	    
 		// 새로운 TodoVO 객체 추가
-	    list.add(new TodoVO(titleParm, dateParm));
-		request.setAttribute("list", list);
+	    todoList.add(todo);
+		request.setAttribute("list", todoList);
 
+		// list 페이지에 forward
 		// url mapping
 		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/WEB-INF/todo/exam/list.jsp");
 		requestDispatcher.forward(request, response);
