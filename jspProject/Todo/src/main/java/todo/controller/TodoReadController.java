@@ -14,6 +14,8 @@ public class TodoReadController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		System.out.println("TodoReadController... doGet()");
 		
 		//상세보기 페이지는 get 요청에 화면을 보여주는 처리
 		//어떤 Todo의 데이터인지 식별할 수 있는 키 데이터 받아서 처리

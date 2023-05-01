@@ -16,6 +16,8 @@ public class TodoModifyController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		System.out.println("TodoModifyController... doGet()...");
 		
 		// 수정폼 : 이전에 입력했던 데이터가 화면에 출력
 		// no 값을 받고
@@ -36,7 +38,7 @@ public class TodoModifyController extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		System.out.println("TodoModifyController... doPost()");
+		System.out.println("TodoModifyController... doPost()...");
 		
 		// 수정 Form에서 전달받고
 		request.setCharacterEncoding("UTF-8");

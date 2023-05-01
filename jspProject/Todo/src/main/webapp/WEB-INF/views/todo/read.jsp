@@ -12,12 +12,13 @@ span {width:50px;}
 input {width:calc(100% - 50px);height:30px;}
 input[type=checkbox] {width:auto;height:auto;}
 .button_wrap a {width:calc(100%/2 - 3px);height:30px;}
+.button_wrap input {width:100px;height:30px;}
 </style>
 
 </head>
 <body>
 
-<h1>Todo 읽기 페이지</h1>
+<h1>Todo 상세 페이지</h1>
 
 <div class="register">
 	<ul>
@@ -28,7 +29,11 @@ input[type=checkbox] {width:auto;height:auto;}
 		<li><span>완료 : </span><input type="checkbox" name="complete" ${complete == 'done' ? 'checked' : ''} disabled /></li>
 		<li class="button_wrap">
 			<a href="modify?no=${no}">Modify</a>
-			<a href="#">Remove</a>
+			<%-- <a href="delete?no=${no}">Remove</a> --%>
+			<form action="delete" method="post">
+				<input type="hidden" name="no" value="${no}">
+				<input type="submit" value="Remove">
+			</form>
 		</li>
 	</ul>
 </div>
