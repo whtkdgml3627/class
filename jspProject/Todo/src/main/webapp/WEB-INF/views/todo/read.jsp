@@ -22,16 +22,16 @@ input[type=checkbox] {width:auto;height:auto;}
 
 <div class="register">
 	<ul>
-		<li><span>번호 : </span><input type="text" name="no" value="${no}" readonly /></li>
-		<li><span>할일 : </span><input type="text" name="todo" value="${todo}" placeholder="Title" readonly /></li>
-		<li><span>날짜 : </span><input type="date" name="duedate" value="${duedate}" readonly /></li>
+		<li><span>번호 : </span><input type="text" name="no" value="${todo.tno}" readonly /></li>
+		<li><span>할일 : </span><input type="text" name="todo" value="${todo.todo}" placeholder="Title" readonly /></li>
+		<li><span>날짜 : </span><input type="date" name="duedate" value="${todo.duedate}" readonly /></li>
 		<!-- checkbox의 value -> "on" 체크되면 넘어오는 값 -->
-		<li><span>완료 : </span><input type="checkbox" name="complete" ${complete == 'done' ? 'checked' : ''} disabled /></li>
+		<li><span>완료 : </span><input type="checkbox" name="complete" ${todo.finished ? 'checked' : ''} disabled /></li>
 		<li class="button_wrap">
-			<a href="modify?no=${no}">Modify</a>
+			<a href="modify?no=${todo.tno}">Modify</a>
 			<%-- <a href="delete?no=${no}">Remove</a> --%>
 			<form action="delete" method="post">
-				<input type="hidden" name="no" value="${no}">
+				<input type="hidden" name="no" value="${todo.tno}">
 				<input type="submit" value="Remove">
 			</form>
 		</li>

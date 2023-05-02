@@ -22,11 +22,11 @@ input[type=checkbox] {width:auto;height:auto;}
 <form method="post">
 	<div class="register">
 		<ul>
-			<li><span>번호 : </span><input type="text" name="no" value="${todo.no}" readonly /></li>
+			<li><span>번호 : </span><input type="text" name="no" value="${todo.tno}" readonly /></li>
 			<li><span>할일 : </span><input type="text" name="todo" value="${todo.todo}" placeholder="Title" /></li>
 			<li><span>날짜 : </span><input type="date" name="duedate" value="${todo.duedate}" /></li>
 			<!-- checkbox의 value -> "on" 체크되면 넘어오는 값 -->
-			<li><span>완료 : </span><input type="checkbox" name="complete" ${todo.complete == 'done' ? 'checked' : ''} /></li>
+			<li><span>완료 : </span><input type="checkbox" name="complete" ${todo.finished ? 'checked' : ''} /></li>
 			<li class="button_wrap">
 				<input type="reset" value="RESET" />
 				<input type="submit" value="MODIFY" />
