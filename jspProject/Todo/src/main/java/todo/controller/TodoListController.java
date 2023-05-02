@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import todo.domain.TodoDTO;
 import todo.service.TodoListService;
 
+@SuppressWarnings("serial")
 @WebServlet(name = "todoListController", urlPatterns = "/todo/list")
 public class TodoListController extends HttpServlet {
 	
@@ -36,9 +37,9 @@ public class TodoListController extends HttpServlet {
 		request.setAttribute("todoList", list);
 		
 		//3. 응답 데이터를 request의 속성에 저장 : view로 데이터 전달
+		
+		
 		//4. view 지정 -> forward
-		
-		
 		String viewPath = "/WEB-INF/views/todo/list.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPath);
 		dispatcher.forward(request, response);

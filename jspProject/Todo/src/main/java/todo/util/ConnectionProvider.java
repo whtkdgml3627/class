@@ -8,13 +8,13 @@ import java.sql.SQLException;
  * Service : DAO 메소드에 매개변수로 전달
  * */
 public class ConnectionProvider {
-	static {
-      try {
-         Class.forName("com.mysql.cj.jdbc.Driver");
-      } catch (ClassNotFoundException e) {
-         e.printStackTrace();
-      }
-   }
+//	static {
+//		try {
+//			Class.forName("com.mysql.cj.jdbc.Driver");
+//		} catch (ClassNotFoundException e) {
+//			e.printStackTrace();
+//		}
+//	}
 	
 	public static Connection getConnection() throws SQLException {
 		String dbUrl = "jdbc:mysql://localhost:3306/project";	//DB URL
