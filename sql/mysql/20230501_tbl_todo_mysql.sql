@@ -12,8 +12,8 @@ INSERT INTO tbl_todo (todo, duedate) VALUES ('JSP 공부', '2023-05-05');
 -- INSERT INTO tbl_todo (todo, duedate) VALUES (?, ?)
 
 -- DML UPDATE
-UPDATE tbl_todo set todo='청소', duedate='2023-05-03' where tno=2;
--- UPDATE tbl_todo set todo=?, duedate=? where tno=?
+UPDATE tbl_todo SET todo='청소', duedate='2023-05-03', finished=false WHERE tno=2;
+-- UPDATE tbl_todo SET todo=?, duedate=?, finished=? WHERE tno=?
 
 -- DML DELETE
 DELETE from tbl_todo where tno=8;
