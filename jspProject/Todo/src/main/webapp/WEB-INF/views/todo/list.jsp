@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,6 +21,12 @@ li {margin:5px 0;list-style:none;}
 	<li><a href="${pageContext.request.contextPath}/todo/read?no=4">4. 청소</a> 2023-05-01 DONE</li>
 	<li><a href="${pageContext.request.contextPath}/todo/read?no=5">5. 청소</a> 2023-05-01 DONE</li>
 </ul>
+${todoList }
+<%-- <ul>
+	<c:forEach var="list" items="${todoList}">
+		<li><a href="${pageContext.request.contextPath}/todo/read?no=${todoList.tno}">${todoList.tno} ${todoList.todo}</a> ${todoList.duedate} DONE</li>
+	</c:forEach>
+</ul> --%>
 
 <a href="${pageContext.request.contextPath}/todo/register">Todo Regist</a>
 
