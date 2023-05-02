@@ -47,13 +47,13 @@ public class TodoDAO {
 			// List<TodoDTO> 에 저장 후 반환
 			list = new ArrayList<TodoDTO>();
 			while(rs.next()) {
-				int tno = rs.getInt("tno");
-				String todo = rs.getString("todo");
-				String duedate = rs.getString("duedate");
-				boolean finished = rs.getBoolean("finished");
-				
-				TodoDTO dto = new TodoDTO(tno, todo, duedate, finished);
-				list.add(dto);
+//				int tno = rs.getInt("tno");
+//				String todo = rs.getString("todo");
+//				String duedate = rs.getString("duedate");
+//				boolean finished = rs.getBoolean("finished");
+//				
+//				TodoDTO dto = new TodoDTO(tno, todo, duedate, finished);
+				list.add(makeTodoDTO(rs));
 			}
 			
 		} catch (SQLException e) {
@@ -95,7 +95,8 @@ public class TodoDAO {
 			
 			// if : 결과 행이 0 또는 1일 때
 			if(rs.next()) {
-				todo = new TodoDTO(rs.getInt("tno"), rs.getString("todo"), rs.getString("duedate"), rs.getBoolean("finished"));
+//				todo = new TodoDTO(rs.getInt("tno"), rs.getString("todo"), rs.getString("duedate"), rs.getBoolean("finished"));
+				todo = makeTodoDTO(rs);
 			}
 			
 		} catch (SQLException e) {
@@ -114,6 +115,18 @@ public class TodoDAO {
 		}
 		return todo;
 	}
+	
+	// rs -> TodoDTO 생성 -> 반환
+	@SuppressWarnings("unused")
+	private TodoDTO makeTodoDTO(ResultSet rs) throws SQLException {
+		return new TodoDTO(
+				rs.getInt("tno"),
+				rs.getString("todo"),
+				rs.getString("duedate"),
+				rs.getBoolean("finished")
+				);
+	}
+	
 	
 	// ReuqestTodo 데이터를 받아서 insert 처리
 	public int insertTodo(Connection conn, RequestTodo todo) {
