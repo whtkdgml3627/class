@@ -6,14 +6,13 @@
 <meta charset="UTF-8">
 <title>LIST Page</title>
 <style>
-ul {margin:0;padding:0;}
-li {margin:5px 0;list-style:none;}
+li {margin:5px 0;}
 .button_wrap {margin:15px 0 0;}
 </style>
 </head>
 <body>
 
-<h1>Todo 리스트 페이지</h1>
+<h1>Todo 리스트 페이지 ( ${loginInfo} )</h1>
 <%-- <ul>
 	<li><a href="${pageContext.request.contextPath}/todo/read?no=1">1. 청소</a> 2023-05-01 DONE</li>
 	<li><a href="${pageContext.request.contextPath}/todo/read?no=2">2. 청소</a> 2023-05-01 DONE</li>
@@ -29,6 +28,14 @@ li {margin:5px 0;list-style:none;}
 </ul>
 
 <a href="${pageContext.request.contextPath}/todo/register">Todo Regist</a>
+<c:choose>
+	<c:when test="${loginInfo eq null}">
+		<a href="${pageContext.request.contextPath}/login">Login</a>
+	</c:when>
+	<c:otherwise>
+		<a href="${pageContext.request.contextPath}/logout">Logout</a>
+	</c:otherwise>
+</c:choose>
 
 </body>
 </html>
