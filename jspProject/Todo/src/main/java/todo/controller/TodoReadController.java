@@ -5,6 +5,7 @@ import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -37,6 +38,14 @@ public class TodoReadController extends HttpServlet {
 //			response.sendRedirect("/app/login");
 //			return;
 //		}
+		
+		// 쿠키값 확인
+		Cookie[] cookies = request.getCookies();
+		for(Cookie c : cookies) {
+			if(c.getName().equals("uname")) {
+				System.out.println(c.getName() + " = " + c.getValue());
+			}
+		}
 		
 		//상세보기 페이지는 get 요청에 화면을 보여주는 처리
 		//어떤 Todo의 데이터인지 식별할 수 있는 키 데이터 받아서 처리

@@ -6,6 +6,7 @@ import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -45,12 +46,18 @@ public class TodoListController extends HttpServlet {
 //		}
 		
 		//1. 사용자 요청의 분석
+		
 		//2. Service에 요청 -> 응답데이터 반환
+		//3. 응답 데이터를 request의 속성에 저장 : view로 데이터 전달
 		List<TodoDTO> list = listService.getList();
 		request.setAttribute("todoList", list);
 		
-		//3. 응답 데이터를 request의 속성에 저장 : view로 데이터 전달
+		// 쿠키 설정
+		// 1. Cookie 객체 생성
+		Cookie cookie = new Cookie("uname", "cool");
 		
+		// 2. response.addCoockie(쿠키 객체);
+		response.addCookie(cookie);
 		
 		//4. view 지정 -> forward
 		String viewPath = "/WEB-INF/views/todo/list.jsp";
