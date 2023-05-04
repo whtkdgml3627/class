@@ -7,7 +7,7 @@
 </head>
 <body>
 
-<h1>Todo 등록 페이지</h1>
+<h1>Company 등록 페이지</h1>
 
 <form method="post">
 	<input type="text" name="deptno" placeholder="부서번호" /><br>
