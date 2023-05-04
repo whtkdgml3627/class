@@ -11,19 +11,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import domain.CompanyVO;
-import service.DeptListService;
+import service.CompanyListService;
 
 /**
  * Servlet implementation class TodoListController
  */
 @WebServlet("/list")
-public class DeptListController extends HttpServlet {
+public class CompanyListController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	DeptListService service;
+	CompanyListService service;
 	
-	public DeptListController() {
-		this.service = DeptListService.getInstatnce();
+	public CompanyListController() {
+		this.service = CompanyListService.getInstatnce();
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

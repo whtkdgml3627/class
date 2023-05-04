@@ -15,6 +15,7 @@
 		<li><a href="#">${list.deptno} / ${list.empno} / ${list.ename} / ${list.job} / ${list.hiredate}</a></li>
 	</c:forEach>
 </ul>
+<a href="${pageContext.request.contextPath}/regist">Register</a>
 
 </body>
 </html>

@@ -6,7 +6,7 @@ package domain;
  * */
 public class CompanyVO {
 	private int deptno;			// 부서번호 PK
-	private String empno;		// 사원번호
+	private int empno;		// 사원번호
 	private String ename;		// 사원명
 	private String job;			// 직업
 	private String hiredate;	// 입사일
@@ -17,7 +17,7 @@ public class CompanyVO {
 	}
 
 	// 값 넣을 생성자
-	public CompanyVO(int deptno, String empno, String ename, String job, String hiredate) {
+	public CompanyVO(int deptno, int empno, String ename, String job, String hiredate) {
 		super();
 		this.deptno = deptno;
 		this.empno = empno;
@@ -35,11 +35,11 @@ public class CompanyVO {
 		this.deptno = deptno;
 	}
 
-	public String getEmpno() {
+	public int getEmpno() {
 		return empno;
 	}
 
-	public void setEmpno(String empno) {
+	public void setEmpno(int empno) {
 		this.empno = empno;
 	}
 

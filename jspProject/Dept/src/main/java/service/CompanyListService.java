@@ -4,20 +4,20 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 
-import dao.DeptDAO;
+import dao.CompanyDAO;
 import domain.CompanyVO;
 import todo.util.ConnectionProvider;
 
-public class DeptListService {
+public class CompanyListService {
 	
-	DeptDAO dao;
+	CompanyDAO dao;
 	
 	// 싱글톤
-	private DeptListService() {
-		this.dao = DeptDAO.getInstance();
+	private CompanyListService() {
+		this.dao = CompanyDAO.getInstance();
 	}
-	private static DeptListService service = new DeptListService();
-	public static DeptListService getInstatnce() {
+	private static CompanyListService service = new CompanyListService();
+	public static CompanyListService getInstatnce() {
 		return service;
 	}
 	// 싱글톤

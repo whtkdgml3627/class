@@ -24,7 +24,14 @@ create or replace view company
 as
 select deptno, empno, ename, job, hiredate
 from emp;
+
+-- list
 select * from company order by deptno;
+
+-- insert
+insert into company values (10, 9999, 'TEST', 'TEST', '2023-05-04');
+-- insert into company values (?, ?, ?, ?, ?)
+
 
 
 
