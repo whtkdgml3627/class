@@ -11,8 +11,8 @@
 <h1>Dept 리스트 페이지</h1>
 
 <ul>
-	<c:forEach var="list" items="${deptlist}">
-		<li><a href="#">${list.deptno} / ${list.dname} / ${list.loc}</a></li>
+	<c:forEach var="list" items="${companyList}">
+		<li><a href="#">${list.deptno} / ${list.empno} / ${list.ename} / ${list.job} / ${list.hiredate}</a></li>
 	</c:forEach>
 </ul>
 

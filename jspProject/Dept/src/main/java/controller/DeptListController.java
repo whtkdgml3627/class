@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import domain.DeptVO;
+import domain.CompanyVO;
 import service.DeptListService;
 
 /**
@@ -28,8 +28,8 @@ public class DeptListController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		List<DeptVO> deptList = service.list();
-		request.setAttribute("deptlist", deptList);
+		List<CompanyVO> companyList = service.list();
+		request.setAttribute("companyList", companyList);
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/dept/list.jsp");
 		dispatcher.forward(request, response);

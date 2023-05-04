@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import domain.DeptVO;
+import domain.CompanyVO;
 import todo.util.ConnectionProvider;
 
 public class DeptDAO {
@@ -20,36 +20,36 @@ public class DeptDAO {
 	}
 	// /싱글톤
 	
-	public List<DeptVO> selectByAll(Connection conn){
+	public List<CompanyVO> selectByAll(Connection conn){
 		
-		// close를 위해 미리 선언해둔다.
-		// 값을 불러오기 위한 PreparedStatement
+		// close를 위한 초기화
 		PreparedStatement pstmt = null;
-		// 값을 출력하기 위한 ResultSet
 		ResultSet rs = null;
-		// 값을 담기 위한 List<DeptVO>
-		List<DeptVO> list = null;
+		List<CompanyVO> list = null;
+		
+		// 테이블 list 불러올 쿼리
+		String sql = "select * from company order by deptno";
+		
 		list = new ArrayList<>();
 		
-		// sql문
-		String sql = "SELECT * FROM dept01";
-
-		// SQLException 예외처리
 		try {
-			// sql문 불러오기
+			// sql넣기
 			pstmt = conn.prepareStatement(sql);
 			
-			// 전체 출력
+			// 값 불러오기
 			rs = pstmt.executeQuery();
+			
+			// list에 넣기
 			while(rs.next()) {
 				int deptno = rs.getInt("deptno");
-				String dname = rs.getString("dname");
-				String loc = rs.getString("loc");
+				String empno = rs.getString("empno");
+				String ename = rs.getString("ename");
+				String job = rs.getString("job");
+				String hiredate = rs.getString("hiredate");
 				
-				// 객체 생성
-				DeptVO vo = new DeptVO(deptno, dname, loc); 
-				list.add(vo);
+				list.add(new CompanyVO(deptno, empno, ename, job, hiredate));
 			}
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -73,8 +73,8 @@ public class DeptDAO {
 		Connection conn = ConnectionProvider.getConnection();
 		DeptDAO dao = DeptDAO.getInstance();
 		
-		List<DeptVO> list = dao.selectByAll(conn);
-		for(DeptVO dept : list) {
+		List<CompanyVO> list = dao.selectByAll(conn);
+		for(CompanyVO dept : list) {
 			System.out.println(dept);
 		}
 		conn.close();
