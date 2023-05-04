@@ -12,7 +12,7 @@ li {margin:5px 0;}
 </head>
 <body>
 
-<h1>Todo 리스트 페이지 ( ${loginInfo} )</h1>
+<h1>Todo 리스트 페이지 ( ${loginInfo.uid} [${loginInfo.uname}] )</h1>
 <%-- <ul>
 	<li><a href="${pageContext.request.contextPath}/todo/read?no=1">1. 청소</a> 2023-05-01 DONE</li>
 	<li><a href="${pageContext.request.contextPath}/todo/read?no=2">2. 청소</a> 2023-05-01 DONE</li>

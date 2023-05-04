@@ -17,7 +17,7 @@ input[type=checkbox] {width:auto;height:auto;}
 </head>
 <body>
 
-<h1>Todo 수정 페이지</h1>
+<h1>Todo 수정 페이지 ( ${loginInfo.uid} [${loginInfo.uname}] )</h1>
 
 <form method="post">
 	<div class="register">

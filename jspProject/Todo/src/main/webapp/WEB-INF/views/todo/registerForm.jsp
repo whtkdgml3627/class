@@ -15,7 +15,7 @@ input {width:calc(100% - 50px);height:30px;}
 </head>
 <body>
 
-<h1>Todo 등록 페이지</h1>
+<h1>Todo 등록 페이지 ( ${loginInfo.uid} [${loginInfo.uname}] )</h1>
 
 <form method="post">
 	<div class="register">

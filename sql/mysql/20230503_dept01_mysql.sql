@@ -18,3 +18,18 @@ INSERT INTO DEPT01 (DNAME, LOC) VALUES ('TEST', 'LOCTEST');
 -- delete
 DELETE from DEPT01 where deptno=5;
 -- DELETE from DEPT01 where deptno=?
+
+select * from emp, dept where emp.deptno=dept.deptno;
+create or replace view company
+as
+select deptno, empno, ename, job, hiredate
+from emp;
+select * from company order by deptno;
+
+
+
+
+
+
+
+
