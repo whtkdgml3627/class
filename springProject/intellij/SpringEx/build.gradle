@@ -27,11 +27,8 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
 
-    // https://mvnrepository.com/artifact/org.springframework/spring-core
     implementation group: 'org.springframework', name: 'spring-core', version: '5.3.16'
-    // https://mvnrepository.com/artifact/org.springframework/spring-context
     implementation group: 'org.springframework', name: 'spring-context', version: '5.3.16'
-    // https://mvnrepository.com/artifact/org.springframework/spring-test
     testImplementation group: 'org.springframework', name: 'spring-test', version: '5.3.16'
 
     compileOnly 'org.projectlombok:lombok:1.18.22'
