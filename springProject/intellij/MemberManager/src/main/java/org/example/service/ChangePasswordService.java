@@ -2,14 +2,18 @@ package org.example.service;
 
 import org.example.dao.Dao;
 import org.example.domain.Member;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 public class ChangePasswordService {
 
+	@Autowired
+	@Qualifier("member")
 	private Dao dao;
 
-	public ChangePasswordService(Dao dao) {
+	/*public ChangePasswordService(Dao dao) {
 		this.dao = dao;
-	}
+	}*/
 	
 	// 이메일, 현재비밀번호, 새로운비밀번호 -> 데이터 변경처리
 	public void changePassword(String email, String oldPW, String newPW){
