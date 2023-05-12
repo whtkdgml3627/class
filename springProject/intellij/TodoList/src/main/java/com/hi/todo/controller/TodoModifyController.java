@@ -25,6 +25,7 @@ public class TodoModifyController {
 	// post : 데이터 받고 -> 수정 -> List로 redirect
 	@RequestMapping(method = RequestMethod.POST)
 	public String modify(
+			// 매개변수에서 사용할 때는 이름을 정의 해주는 용도로 사용
 			@ModelAttribute("modifyData") ModifyTodoRequest modifyTodoRequest
 	){
 		log.info("POST /todo/modify");
@@ -35,6 +36,7 @@ public class TodoModifyController {
 		return "redirect:/todo/list";
 	}
 
+	// 해당 Controller내에서 view로 전달해줄 때 어디서든 사용 가능한 model선언
 	@ModelAttribute("strData")
 	public String getData(){
 		return "hello Spring!!!";
