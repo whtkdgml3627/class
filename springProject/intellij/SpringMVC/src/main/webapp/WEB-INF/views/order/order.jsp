@@ -15,16 +15,17 @@
 
 	<h1>주문내역</h1>
 
-	<ul>
-		<c:forEach var="orderItem" items="${order.orderItems}" varStatus="stat">
-			<li>
-				<h3>상품${stat.count}</h3>
-				ID - ${orderItem.itemId}<br>
-				개수 - ${orderItem.number}<br>
-				주의사항 - ${orderItem.remark}
-			</li>
-		</c:forEach>
-	</ul>
+	<c:forEach var="orderItem" items="${order.orderItems}" varStatus="stat">
+			<h3>상품${stat.count}</h3>
+			ID - ${orderItem.itemId}<br>
+			개수 - ${orderItem.number}<br>
+			주의사항 - ${orderItem.remark}
+	</c:forEach>
+
+	<h3>배송지</h3>
+	우편번호 - ${order.address.zipcode}<br>
+	기본주소 - ${order.address.address1}<br>
+	상세주소 - ${order.address.address2}
 
 </body>
 </html>
