@@ -34,10 +34,6 @@
 		<property name="defaultEncoding" value="UTF-8" />
 	</bean>
 
-
-	<!-- bean 자동 등록 설정 : @Controller, @Service, @Repository -->
-	<context:component-scan base-package="com.hi.app"></context:component-scan>
-
 	<!-- 회원 로그인 여부 체크 interceptor 등록 -->
 	<mvc:interceptors>
 		<mvc:interceptor>
@@ -46,5 +42,18 @@
 			<bean class="com.hi.app.interceptor.AuthCheckInterceptor"/>
 		</mvc:interceptor>
 	</mvc:interceptors>
+
+	<bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+		<property name="formatters">
+			<set>
+				<bean class="com.hi.app.formatter.LocalDateFormatter"/>
+			</set>
+		</property>
+	</bean>
+	<!-- formmatter 등록 설정 -->
+	<mvc:annotation-driven conversion-service="conversionService"/>
+
+	<!-- bean 자동 등록 설정 : @Controller, @Service, @Repository -->
+	<context:component-scan base-package="com.hi.app"></context:component-scan>
 
 </beans>
