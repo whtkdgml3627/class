@@ -38,4 +38,13 @@
 	<!-- bean 자동 등록 설정 : @Controller, @Service, @Repository -->
 	<context:component-scan base-package="com.hi.app"></context:component-scan>
 
+	<!-- 회원 로그인 여부 체크 interceptor 등록 -->
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/mypage/**"/>
+			<mvc:exclude-mapping path="/mypage/help/**"/>
+			<bean class="com.hi.app.interceptor.AuthCheckInterceptor"/>
+		</mvc:interceptor>
+	</mvc:interceptors>
+
 </beans>
