@@ -28,7 +28,7 @@ public class DeptListController {
 		log.info("GET | /dept/list");
 
 		DeptSearchOption searchOption = DeptSearchOption.builder().searchType(keyword.trim().length()<1 ? null : searchType).keyword(keyword.trim().length()<1 ? null : keyword).build();
-		log.info(">>>>> searchOption : " + searchOption);
+		//log.info(">>>>> searchOption : " + searchOption);
 
 //		deptSearchOption.setKeyword(deptSearchOption.getKeyword()!=null && deptSearchOption.getKeyword().trim().length()>0 ? deptSearchOption.getKeyword() : null);
 //		deptSearchOption.setSearchType(deptSearchOption.getKeyword()!=null && deptSearchOption.getKeyword().trim().length()>0 ? deptSearchOption.getSearchType() : null);
