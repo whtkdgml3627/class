@@ -13,7 +13,8 @@
 
 	<!-- 등록 insert -->
 	<insert id="insertBoard" parameterType="com.hi.board.domain.RequestRegBoard">
-		insert into tbl_board (title, content, writer) values (#{title}, #{content}, #{writer})
+		<!-- file : 파일의 이름을 저장하는 문자열 -->
+		insert into tbl_board (title, content, writer, file) values (#{title}, #{content}, #{writer}, #{filename})
 	</insert>
 
 </mapper>

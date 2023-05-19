@@ -14,7 +14,7 @@
 <div class="wrap">
 	<h1>게시글 작성</h1>
 	<hr>
-	<form method="post">
+	<form method="post" enctype="multipart/form-data">
 		<table>
 			<tbody>
 				<tr>
@@ -28,6 +28,10 @@
 				<tr>
 					<th>내용 : </th>
 					<td><textarea name="content" cols="22" rows="5" required style="resize:none;"></textarea></td>
+				</tr>
+				<tr>
+					<th>첨부파일(이미지) : </th>
+					<td><input type="file" name="file"></td>
 				</tr>
 				<tr>
 					<td></td>
