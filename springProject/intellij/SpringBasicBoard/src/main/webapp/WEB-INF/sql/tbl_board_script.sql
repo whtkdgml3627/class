@@ -2,6 +2,10 @@
 
 -- select
 select * from tbl_board;
+select * from tbl_board order by bno desc limit 0,5; -- 1page (1-1)*5 = 0
+select * from tbl_board order by bno desc limit 5,5; -- 2page (2-1)*5 = 5
+select * from tbl_board order by bno desc limit 10,5; -- 3page (3-1)*5 = 10
+select * from tbl_board order by bno desc limit 15,5; -- 4page (4-1)*5 = 15
 
 -- insert
 insert into tbl_board (title, content, writer) values ('게시글 테스트 1', '게시글 쓰기 테스트 1', '테스터');

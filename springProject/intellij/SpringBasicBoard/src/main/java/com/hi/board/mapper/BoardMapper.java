@@ -10,6 +10,14 @@ import java.util.List;
 @Mapper
 public interface BoardMapper {
 
+	// 게시판 페이징 - select
+	// selectList(0, 5) #{param1} => 0, #{param2} => 5
+	// param1 : 첫번 째 매개변수, param2 : 두번 째 매개변수
+	List<BoardDTO> selectList(int startNum, int count);
+
+	// 전체
+	int selectTotalCount();
+
 	// 게시판 리스트 출력 - select
 	List<BoardDTO> selectAll();
 
