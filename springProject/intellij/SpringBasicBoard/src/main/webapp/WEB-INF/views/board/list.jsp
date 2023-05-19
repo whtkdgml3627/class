@@ -13,7 +13,7 @@
 	<style>
 		table {border:1px solid black;}
 		th, td {padding:15px;text-align:center;border:1px solid black;}
-		td:nth-child(2) {text-align:left;}
+		td:nth-child(3) {text-align:left;}
 	</style>
 </head>
 <body>
@@ -23,6 +23,7 @@
 	<table>
 		<thead>
 			<tr>
+				<th>NO</th>
 				<th>번호</th>
 				<th>제목</th>
 				<th>작성자</th>
@@ -30,8 +31,9 @@
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach var="board" items="${list}">
+			<c:forEach var="board" items="${list}" varStatus="stat">
 			<tr>
+				<td>${stat.count}</td>
 				<td>${board.bno}</td>
 				<td><a href="/board/read?bno=${board.bno}">${board.title}</a></td>
 				<td>${board.writer}</td>

@@ -11,10 +11,25 @@
 		select * from tbl_board
 	</select>
 
+	<!-- 상세 select -->
+	<select id="selectByBno" resultType="com.hi.board.domain.BoardDTO">
+		select * from tbl_board where bno=#{bno}
+	</select>
+
 	<!-- 등록 insert -->
 	<insert id="insertBoard" parameterType="com.hi.board.domain.RequestRegBoard">
 		<!-- file : 파일의 이름을 저장하는 문자열 -->
 		insert into tbl_board (title, content, writer, file) values (#{title}, #{content}, #{writer}, #{filename})
 	</insert>
+
+	<!-- 수정 update -->
+	<update id="updateBoard" parameterType="com.hi.board.domain.RequestModifyRequest">
+		update tbl_board set title=#{title}, content=#{content}, writer=#{writer}, file=#{filename}, updatedate=now() where bno=#{bno}
+	</update>
+
+	<!-- 삭제 delete -->
+	<delete id="deleteBoard">
+		delete from tbl_board where bno=#{bno}
+	</delete>
 
 </mapper>
