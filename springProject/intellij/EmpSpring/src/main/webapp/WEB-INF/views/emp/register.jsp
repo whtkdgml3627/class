@@ -17,10 +17,6 @@
 	<table>
 		<tbody>
 			<tr>
-				<th>사원번호</th>
-				<td><input type="text" name="empno"></td>
-			</tr>
-			<tr>
 				<th>사원이름</th>
 				<td><input type="text" name="ename"></td>
 			</tr>

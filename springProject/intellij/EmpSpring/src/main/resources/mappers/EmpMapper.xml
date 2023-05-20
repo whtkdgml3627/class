@@ -8,9 +8,19 @@
 		select * from emp01 order by empno
 	</select>
 
+	<!-- 수정 출력 -->
+	<select id="selectByEmpno" resultType="com.hi.empspring.domain.EmpVO">
+		select * from emp01 where empno=#{empno}
+	</select>
+
 	<!-- 등록 -->
 	<insert id="insertEmp" parameterType="com.hi.empspring.domain.EmpVO">
-		insert into emp01 values (#{empno}, #{ename}, #{job}, #{mgr}, #{hiredate}, #{sal}, #{comm}, #{deptno})
+		insert into emp01 (ename, job, mgr, hiredate, sal, comm, deptno) values (#{ename}, #{job}, #{mgr}, #{hiredate}, #{sal}, #{comm}, #{deptno})
 	</insert>
+
+	<!-- 수정 -->
+	 <update id="updateEmp" parameterType="com.hi.empspring.domain.EmpVO">
+		 update emp01 set ename=#{ename}, job=#{job}, mgr=#{mgr}, hiredate=#{hiredate}, sal=#{sal}, comm=#{comm}, deptno=#{deptno} where empno = #{empno}
+	 </update>
 
 </mapper>

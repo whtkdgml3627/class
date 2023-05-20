@@ -46,8 +46,8 @@
 			<td><fmt:formatNumber value="${emplist.comm}" pattern="#,###"/></td>
 			<td>${emplist.deptno}</td>
 			<td>
-				<a href="/emp/modify?no=${emplist.empno}">수정</a>
-				<a href="/emp/delete?no=${emplist.empno}">삭제</a>
+				<a href="/emp/modify?empno=${emplist.empno}">수정</a>
+				<a href="/emp/delete?empno=${emplist.empno}">삭제</a>
 			</td>
 		</tr>
 		</c:forEach>
