@@ -19,5 +19,6 @@ public interface EmpMapper {
 	EmpVO selectByEmpno(int empno);
 
 	// emp 삭제 -> delete
+	int deleteEmp(int empno);
 
 }
