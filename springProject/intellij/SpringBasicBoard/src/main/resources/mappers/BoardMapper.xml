@@ -7,13 +7,34 @@
 <mapper namespace="com.hi.board.mapper.BoardMapper">
 
 	<!-- 페이징 리스트 select -->
-	<select id="selectList" resultType="com.hi.board.domain.BoardDTO">
-		select * from tbl_board order by bno desc limit #{param1}, #{param2}
+	<select id="selectList" resultType="com.hi.board.domain.BoardDTO" parameterType="com.hi.board.domain.PageOption">
+		select * from tbl_board
+		<where>
+			<if test="searchOption.searchType != null and searchOption.keyword != null">
+				<!-- 제목 -->
+				<if test="searchOption.searchType == 'title'">title like concat('%', #{searchOption.keyword}, '%')</if>
+				<!-- 내용 -->
+				<if test="searchOption.searchType == 'content'">content like concat('%', #{searchOption.keyword}, '%')</if>
+				<!-- 작성자 -->
+				<if test="searchOption.searchType == 'writer'">writer like concat('%', #{searchOption.keyword}, '%')</if>
+			</if>
+		</where>
+		order by bno desc limit #{startNum}, #{count}
 	</select>
 
 	<!-- 전체 select -->
-	<select id="selectTotalCount" resultType="int">
+	<select id="selectTotalCount" resultType="int" parameterType="com.hi.board.domain.BoardSearchOption">
 		select count(*) from tbl_board
+		<where>
+			<if test="searchType != null and keyword != null">
+				<!-- 제목 -->
+				<if test="searchType == 'title'">title like concat('%', #{keyword}, '%')</if>
+				<!-- 내용 -->
+				<if test="searchType == 'content'">content like concat('%', #{keyword}, '%')</if>
+				<!-- 작성자 -->
+				<if test="searchType == 'writer'">writer like concat('%', #{keyword}, '%')</if>
+			</if>
+		</where>
 	</select>
 	
 	<!-- 리스트 select -->

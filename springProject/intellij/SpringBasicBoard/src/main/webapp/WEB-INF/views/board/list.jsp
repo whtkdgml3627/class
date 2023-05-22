@@ -20,10 +20,21 @@
 <div class="wrap">
 	<h1>게시판 리스트</h1>
 	<hr>
+	<div class="searchArea">
+		<form method="get">
+			<select name="searchType">
+				<option value="title">제목</option>
+				<option value="content">내용</option>
+				<option value="writer">작성자</option>
+			</select>
+			<input type="text" name="keyword">
+			<input type="submit" value="검색">
+		</form>
+	</div>
 	<table>
 		<thead>
 			<tr>
-				<th>NO</th>
+				<%--<th>NO</th>--%>
 				<th>번호</th>
 				<th>제목</th>
 				<th>작성자</th>
@@ -31,9 +42,9 @@
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach var="board" items="${list}" varStatus="stat">
+			<c:forEach var="board" items="${page.list}">
 			<tr>
-				<td>${stat.count}</td>
+				<%--<td>${stat.count}</td>--%>
 				<td>${board.bno}</td>
 				<td><a href="/board/read?bno=${board.bno}">${board.title}</a></td>
 				<td>${board.writer}</td>
@@ -42,6 +53,17 @@
 			</c:forEach>
 		</tbody>
 	</table>
+	<div class="paging">
+		<c:if test="${page.prev}">
+			<a href="/board/list?p=${page.startNum-1}<c:if test="${param.searchType ne null}">&searchType=${param.searchType}</c:if><c:if test="${param.keyword ne null}">&keyword=${param.keyword}</c:if>">이전</a>
+		</c:if>
+		<c:forEach begin="${page.startNum}" end="${page.endNum}" var="num">
+			<a href="/board/list?p=${num}<c:if test="${param.searchType ne null}">&searchType=${param.searchType}</c:if><c:if test="${param.keyword ne null}">&keyword=${param.keyword}</c:if>">[ ${num} ]</a>
+		</c:forEach>
+		<c:if test="${page.next}">
+			<a href="/board/list?p=${page.endNum+1}<c:if test="${param.searchType ne null}">&searchType=${param.searchType}</c:if><c:if test="${param.keyword ne null}">&keyword=${param.keyword}</c:if>">다음</a>
+		</c:if>
+	</div>
 	<br>
 	<a href="/board/write">글쓰기</a>
 </div>

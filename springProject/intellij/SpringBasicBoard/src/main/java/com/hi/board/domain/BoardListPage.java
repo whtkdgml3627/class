@@ -1,7 +1,14 @@
 package com.hi.board.domain;
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
 import java.util.List;
 
+@Getter
+@Setter
+@ToString
 public class BoardListPage {
 	
 	private int countPerPage;       // 페이지 당 출력 할 게시물의 개수
