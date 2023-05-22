@@ -20,6 +20,10 @@
 <div class="wrap">
 	<h1>게시글 상세</h1>
 	<hr>
+	<div>
+		${loginInfo}
+	</div>
+	<hr>
 	<table>
 		<tbody>
 			<tr>

@@ -14,12 +14,16 @@
 <div class="wrap">
 	<h1>게시글 작성</h1>
 	<hr>
+	<div>
+		${loginInfo}
+	</div>
+	<hr>
 	<form method="post" enctype="multipart/form-data">
 		<table>
 			<tbody>
 				<tr>
 					<th>작성자 : </th>
-					<td><input type="text" name="writer" required></td>
+					<td><input type="text" name="writer" value="${loginInfo.idx}" required></td>
 				</tr>
 				<tr>
 					<th>제목 : </th>

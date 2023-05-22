@@ -24,9 +24,6 @@ SELECT * FROM MEMBER WHERE UID='cool' AND PW='1111';
 SELECT idx, uid, uname, uphoto FROM MEMBER WHERE uid='cool' AND pw='1111';
 -- SELECT idx, uid, uname, uphoto FROM MEMBER WHERE uid=? AND pw=?
 
-------------------------------------------------------------------------------------------------------------
-select deptno, empno, ename, job, hiredate from emp01 order by deptno;
--- select deptno, empno, ename, job, hiredate from emp01 order by deptno
 
 
 

@@ -20,6 +20,11 @@
 <div class="wrap">
 	<h1>게시판 리스트</h1>
 	<hr>
+	<div>
+		로그인 정보 : ${loginInfo}<br>
+		<c:if test="${loginInfo ne null}"><a href="/logout">logout</a></c:if>
+	</div>
+	<hr>
 	<div class="searchArea">
 		<form method="get">
 			<select name="searchType">
@@ -55,13 +60,13 @@
 	</table>
 	<div class="paging">
 		<c:if test="${page.prev}">
-			<a href="/board/list?p=${page.startNum-1}<c:if test="${param.searchType ne null}">&searchType=${param.searchType}</c:if><c:if test="${param.keyword ne null}">&keyword=${param.keyword}</c:if>">이전</a>
+			<a href="/board/list?p=${page.startNum-1}<c:if test="${param.searchType ne null and param.keyword ne null}">&searchType=${param.searchType}&keyword=${param.keyword}</c:if>">이전</a>
 		</c:if>
 		<c:forEach begin="${page.startNum}" end="${page.endNum}" var="num">
-			<a href="/board/list?p=${num}<c:if test="${param.searchType ne null}">&searchType=${param.searchType}</c:if><c:if test="${param.keyword ne null}">&keyword=${param.keyword}</c:if>">[ ${num} ]</a>
+			<a href="/board/list?p=${num}<c:if test="${param.searchType ne null and param.keyword ne null}">&searchType=${param.searchType}&keyword=${param.keyword}</c:if>">[ ${num} ]</a>
 		</c:forEach>
 		<c:if test="${page.next}">
-			<a href="/board/list?p=${page.endNum+1}<c:if test="${param.searchType ne null}">&searchType=${param.searchType}</c:if><c:if test="${param.keyword ne null}">&keyword=${param.keyword}</c:if>">다음</a>
+			<a href="/board/list?p=${page.endNum+1}<c:if test="${param.searchType ne null and param.keyword ne null}">&searchType=${param.searchType}&keyword=${param.keyword}</c:if>">다음</a>
 		</c:if>
 	</div>
 	<br>
