@@ -26,7 +26,10 @@
 			</tr>
 			<tr>
 				<th></th>
-				<td><input type="submit" value="로그인"></td>
+				<td>
+					<input type="submit" value="로그인">
+					<a href="/member/regist">회원가입</a>
+				</td>
 			</tr>
 		</tbody>
 	</table>

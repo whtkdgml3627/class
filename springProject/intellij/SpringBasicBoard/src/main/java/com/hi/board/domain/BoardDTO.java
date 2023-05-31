@@ -18,4 +18,7 @@ public class BoardDTO {
 	private String regdate;     // 등록날짜
 	private String updatedate;  // 수정날짜
 
+	// 작성자의 idx
+	private int memidx;
+
 }

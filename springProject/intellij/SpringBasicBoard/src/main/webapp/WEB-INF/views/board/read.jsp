@@ -10,11 +10,74 @@
 <html>
 <head>
 	<title>게시글 상세</title>
+	<script src="https://code.jquery.com/jquery-1.12.4.js" integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU=" crossorigin="anonymous"></script>
 	<style>
         table {border:1px solid black;}
         th, td {padding:15px;border:1px solid black;}
         img {max-width:300px;}
 	</style>
+	<script>
+		$(function(){
+			$('#replyRegForm').on('submit',function(){
+
+                if($('#reply').val().trim().length<1){
+	                alert('댓글 내용을 입력해주세요.');
+                    return false;
+                }
+
+                // 서버로 보낼 객체 -> JSON
+                const payload = {
+                    bno : $('#bno').val(),
+	                memidx : $('#midx').val(),
+	                reply : $('#reply').val()
+                }
+
+                // 비동기 통신
+				$.ajax({
+					url: 'reply', // /board/read
+					type: 'post',
+					contentType: 'application/json',
+					data: JSON.stringify(payload),
+					dataType: 'json',
+					success: function(data){
+						//console.log(data);
+
+                        const reply = data;
+                        // 화면에 동적으로 HTML 생성 추가
+						let html = '';
+							html += '<td>'+reply.memidx+'</td>';
+							html += '<td>'+reply.reply+'</td>';
+							html += '<td>'+reply.replyDate+'</td>';
+                            html += '<td><a href="javascript:delTr('+reply.rno+')">삭제</a></td>';
+
+						const newTr = $('<tr></tr>').attr('tr-index', reply.rno).html(html);
+                        // List 영역에 tr 추가
+                        $('#replyList').append(newTr);
+                        $('#reply').val('');
+					}
+				});
+
+                return false;
+			});
+		});
+
+        function delTr(index){
+            // 비동기 요청 처리
+            $.ajax({
+		        url: 'reply/'+index,
+		        type: 'delete',
+		        success: function(data){
+                    // tr 삭제
+                    $('tr[tr-index="'+index+'"]').remove();
+		        }
+	        });
+
+            /*let idx = $('#replyList tr').attr('tr-index');
+            if(index == idx){
+                $('tr[tr-index="'+index+'"]').remove();
+            }*/
+        }
+	</script>
 </head>
 <body>
 <div class="wrap">
@@ -58,6 +121,27 @@
 			</tr>
 		</tbody>
 	</table>
+
+	<hr>
+	<div id="replyArea">
+		<h3>댓글</h3>
+		<hr>
+		<div>
+			<form id="replyRegForm">
+				<input type="text" id="bno" value="${article.bno}">
+				<input type="text" id="midx" value="${loginInfo.idx}">
+				<input type="text" id="reply" required>
+				<input type="submit">
+			</form>
+		</div>
+
+		<%-- 댓글의 리스트 --%>
+		<table>
+			<tbody id="replyList"></tbody>
+		</table>
+	</div>
+	<hr>
+
 	<br>
 	<a href="/board/list">리스트</a>
 	<a href="/board/modify?bno=${article.bno}">수정</a>
