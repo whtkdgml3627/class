@@ -7,10 +7,6 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>ReadPage</h1>
-
-    <form action ="/todo/remove" method="post">
-        <button>remove</button>
-    </form>
+    <h1>Hello JSP</h1>
 </body>
 </html>

@@ -9,55 +9,70 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import lombok.extern.log4j.Log4j2;
 
 @Controller
-@Log4j2
 @RequestMapping("/todo/")
+@Log4j2
 public class TodoController {
-	
-	// list get
-	@GetMapping("list")
-	public void list() {
-		log.info("GET | LIST");
-	}
+    
+    // list
+    @GetMapping("list")
+    public void list(){
+       
+        log.info("GET | /todo/list");
 
-	// add get
-	@GetMapping("add")
-	public void add() {
-		log.info("GET | ADD");
-	}
+    }
 
-	// add post
-	@PostMapping("add")
-	public String addForm() {
-		log.info("POST | ADD");
-		return "redirect:/todo/list";
-	}
+    // add
+    @GetMapping("add")
+    public void add(){
+       
+        log.info("GET | /todo/add");
 
-	// read get
-	@GetMapping("read/{tno}")
-	public String read(@PathVariable("tno") Long tno) {
-		log.info("GET | READ");
-		return "todo/read";
-	}
+    }
 
-	// modify get
-	@GetMapping("modify/{tno}")
-	public String modify(@PathVariable("tno") Long tno) {
-		log.info("GET | MODIFY");
-		return "/todo/modify";
-	}
+    @PostMapping("add")
+    public String addPost(){
+        
+        log.info("POST | /todo/add");
 
-	// modify post
-	@PostMapping("modify/{tno}")
-	public String modifyForm(@PathVariable("tno") Long tno) {
-		log.info("POST | MODIFY");
-		return "redirect:/todo/read/" + tno;
-	}
+        return "redirect:/todo/list";
+    }
 
-	// delete post
-	@PostMapping("remove")
-	public String remove() {
-		log.info("POST | DELETE");
-		return "redirect:/todo/list";
-	}
+    // read
+    @GetMapping("read/{tno}")
+    public String read(
+        @PathVariable("tno") Long tno
+    ){
+        log.info("GET | /todo/read/" + tno);
+        return "todo/read";
+    }
+
+    // modify
+    @GetMapping("modify/{tno}")
+    public String modify(
+        @PathVariable("tno") Long tno
+    ){
+
+        log.info("GET | /todo/modify/" + tno);
+        return "todo/modify";
+    }
+
+    @PostMapping("modify/{tno}")
+    public String Postmodify(
+        @PathVariable("tno") Long tno
+    ){
+
+        log.info("Post | /todo/modify/" + tno);
+        return "redirect:/todo/read/" + tno;
+    }
+
+
+    // remove
+    @PostMapping("remove")
+    public String remove(){
+        
+        log.info("POST | /todo/remove");
+
+        return "redirect:/todo/list";
+    }
 
 }
